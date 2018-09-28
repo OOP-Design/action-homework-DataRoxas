@@ -5,5 +5,8 @@ import java.util.*;
 import javax.swing.*;
 
 public class Menu{
-    public 
-}
+    public static void main(String[] args){
+      MyFrame f = new MyFrame();
+      f.setVisible(true);
+    }
+  }
