@@ -21,4 +21,4 @@ What is meant by an event source, event listener, and event object?
 ## Exercise \#5
 What is the purpose of an anonymous inner class? What would one use an anonymous inner class for?
 
-  
+  The primary and really only purpose of an anonymous inner class is simply to create an object of a class within a method of another class without creating an entirely new class. Essentially the anonymous class is created within the method and then immediately discarded once that single purpose has been fufiled. Thus they should only be used for purposes like ActionListeners, in situations where the class will never need to be referenced following that initial instance.
