@@ -13,7 +13,15 @@ public class Menu{
     }
   }
 
-private class MyFrame extends JFrame{
+class MyPanel extends JPanel{
+    public MyPanel(){
+    }
+    public void setBackground(Color color){
+        MyPanel.setBackground(color);
+    }
+}
+
+class MyFrame extends JFrame{
 
     private MyPanel panel = new MyPanel();
 
@@ -47,7 +55,7 @@ private class MyFrame extends JFrame{
             add(quitMI);
         }
     }
-    private class BackgroundColorMenu extends JMenu{
+    private class ColorMenu extends JMenu{
         public void ColorMenu(){
             super("Color");
             for(Color color : Color.values()){
@@ -67,8 +75,7 @@ private class MyFrame extends JFrame{
             this.color = color;
         }
     }
-}
-    public enum Color{
+    enum Color{
         Red(Color.RED), Blue(Color.BLUE), Green(Color.GREEN);
         public Color color;
 
@@ -79,3 +86,4 @@ private class MyFrame extends JFrame{
             return color;
         }
     }
+}
