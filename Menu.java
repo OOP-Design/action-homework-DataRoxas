@@ -75,15 +75,15 @@ class MyFrame extends JFrame{
             this.color = color;
         }
     }
-    enum Color{
-        Red(Color.RED), Blue(Color.BLUE), Green(Color.GREEN);
-        public Color color;
+}
+enum Color{
+    Red(Color.RED), Blue(Color.BLUE), Green(Color.GREEN);
+    public Color color;
 
-        Color(Color color){
-            this.color = color;
-        }
-        Color color(){
-            return color;
-        }
+    Color(Color color){
+        this.color = color;
+    }
+    Color color(){
+        return color;
     }
 }
