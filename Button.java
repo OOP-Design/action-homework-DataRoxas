@@ -25,7 +25,8 @@ class MyFrame extends JFrame{
                 char c = e.getKeyChar();
                 if (charList.contains(c)){
                     //Do I add a statement here to add the character to the panel? What would that look like? That?
-                    panel.paintComponent();
+                    //Add it to the charArray in panel. Have pain component display everything in the character Array. When you are ready to delete everything off the panel, you can simply clear out the character array. 
+                    repaint();
                 }
             }
         });
@@ -34,7 +35,8 @@ class MyFrame extends JFrame{
 }
 
 class MyPanel extends JPanel{
-
+    private ArrayList<String> charArray = new ArrayList<>();
+    private ArrayList<> pointArray = new ArrayList<>();
     public MyPanel(){
         addMouseListener(new MouseAdapter() {
             public void MouseClicked(MouseEvent e){
