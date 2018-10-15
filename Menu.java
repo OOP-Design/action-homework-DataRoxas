@@ -26,7 +26,7 @@ class MyFrame extends JFrame{
     private MyPanel panel = new MyPanel();
 
     public void MyFrame(){
-        panel.setBackground(Color.RED);
+        setBackground(Color.RED);
         setLocation(100, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         displayMenu();
@@ -76,11 +76,13 @@ class MyFrame extends JFrame{
         }
     }
 }
-enum Color{
-    Red(Color.RED), Blue(Color.BLUE), Green(Color.GREEN);
-    public Color color;
 
-    Color(Color color){
+
+enum BkgrndColor{
+    Red(Color.RED), Blue(Color.BLUE), Green(Color.GREEN);
+    private Color color;
+
+    BkgrndColor(Color color){
         this.color = color;
     }
     Color color(){
