@@ -16,9 +16,9 @@ public class Menu{
 class MyPanel extends JPanel{
     public MyPanel(){
     }
-    public void setBackground(Color color){
-        MyPanel.setBackground(color);
-    }
+    //public void setBackground(Color color){
+    //    MyPanel.setBackground(color);
+    //}
 }
 
 class MyFrame extends JFrame{
@@ -26,7 +26,7 @@ class MyFrame extends JFrame{
     private MyPanel panel = new MyPanel();
 
     public void MyFrame(){
-        panel.setBackground(Color.RED);
+
         setLocation(100, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         displayMenu();
@@ -34,6 +34,7 @@ class MyFrame extends JFrame{
 
 
         add(panel);
+        panel.setBackground(Color.RED);
         setResizable(false);
     }
 
@@ -43,6 +44,7 @@ class MyFrame extends JFrame{
         menuBar.add(new ColorMenu());
         setJMenuBar(menuBar);
     }
+
     private class QuitMenu extends JMenu{
         public QuitMenu(){
             super("Quit Menu");
@@ -57,8 +59,8 @@ class MyFrame extends JFrame{
     }
     private class ColorMenu extends JMenu{
         public void ColorMenu(){
-            super("Color");
-            for(Color color : Color.values()){
+            //super("Color");
+            for(BackgroundColor color : BackgroundColor.values()){
                 JMenuItem menuItem = new JMenuItem(color.name());
                 menuItem.addActionListener(new ColorListener(color));
                 add(menuItem);
@@ -67,20 +69,20 @@ class MyFrame extends JFrame{
         }
     }
     private class ColorListener implements ActionListener{
-        private Color color;
+        private BackgroundColor color;
         public void actionPerformed(ActionEvent e){
             panel.setBackground(color.color);
         }
-        public ColorListener(Color color){
+        public ColorListener(BackgroundColor color){
             this.color = color;
         }
     }
 }
-enum Color{
+enum BackgroundColor{
     Red(Color.RED), Blue(Color.BLUE), Green(Color.GREEN);
     public Color color;
 
-    Color(Color color){
+    BackgroundColor(Color color){
         this.color = color;
     }
     Color color(){
