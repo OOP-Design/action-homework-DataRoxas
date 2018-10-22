@@ -34,6 +34,12 @@ class MyFrame extends JFrame{
 }
 
 class MyPanel extends JPanel{
+    ArrayList<String> letters = new ArrayList<>();
+    ArrayList<2DPoint> points = new ArrayList<>();
+    letters.add()
+    for(i = 0;i < 600; i++){
+        points.add()
+    }
 
     public MyPanel(){
         addMouseListener(new MouseAdapter() {
@@ -50,8 +56,7 @@ class MyPanel extends JPanel{
     }
 
     public Point getRandomPoint(){
-        
-
+        points.
     }
 
     # Write a method to reset the panel
