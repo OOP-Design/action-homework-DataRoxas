@@ -59,7 +59,7 @@ class MyFrame extends JFrame{
     }
     private class ColorMenu extends JMenu{
         public ColorMenu(){
-            //super("Color");
+            super("Color Menu");
             for(BackgroundColor color : BackgroundColor.values()){
                 JMenuItem menuItem = new JMenuItem(color.name());
                 menuItem.addActionListener(new ColorListener(color));
