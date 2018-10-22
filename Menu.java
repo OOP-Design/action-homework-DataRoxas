@@ -25,7 +25,7 @@ class MyFrame extends JFrame{
 
     private MyPanel panel = new MyPanel();
 
-    public void MyFrame(){
+    public MyFrame(){
 
         setLocation(100, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,7 +58,7 @@ class MyFrame extends JFrame{
         }
     }
     private class ColorMenu extends JMenu{
-        public void ColorMenu(){
+        public ColorMenu(){
             //super("Color");
             for(BackgroundColor color : BackgroundColor.values()){
                 JMenuItem menuItem = new JMenuItem(color.name());
