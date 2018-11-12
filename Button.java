@@ -9,7 +9,7 @@ import javax.imageio.*;
 public class Button{
     public static void main(String[] args){
         MyFrame f = new MyFrame();
-        f.setVisible(true);
+        f.show();
     }
 }
 
@@ -18,12 +18,13 @@ class MyFrame extends JFrame{
     public MyFrame(){
         setSize(600,600);
         setResizable(false);
+        setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(panel);
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e){
                 String c = Character.toString(e.getKeyChar());
                 panel.letters.add(c);
-                //Do I add a statement here to add the character to the panel? What would that look like? That?
                 repaint();
             }
         });
@@ -36,23 +37,31 @@ class MyPanel extends JPanel{
     ArrayList<Point> points = new ArrayList<>();
 
     public MyPanel(){
-        for(int i = 0; i < 600; i++){
-            Point newpoint = new Point((int) (Math.random() * 500), (int) (Math.random() * 500));
-            points.add(newpoint);
-        }
         addMouseListener(new MouseAdapter() {
-            public void MouseClicked(MouseEvent e){
-                letters.clear();
-                repaint();
+            public void MouseDragged(MouseEvent e){
+                int button = e.getButton();
+                System.out.println(button);
+                if(button == 1){
+                    letters.clear();
+                    repaint();
+                }
             }
         });
+        letters.add(Character.toString('c'));
+        for(int i = 0; i < 600; i++){
+            Point newpoint = new Point((int) (Math.random() * 600), (int) (Math.random() * 600));
+            points.add(newpoint);
+        }
     }
 
 
     public void paintComponent(Graphics g){
-        String letter = letters.get(letters.size() - 1);
-        Point randpoint = getRandomPoint();
-        g.drawString(letter, (int) randpoint.getX(),(int) randpoint.getY());
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for(String letter: letters){
+            Point randpoint = getRandomPoint();
+            g2.drawString(letter, (int) randpoint.getX(),(int) randpoint.getY());
+        }
     }
 
     public Point getRandomPoint(){
